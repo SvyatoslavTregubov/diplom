@@ -27,3 +27,5 @@ Route::group([
         Route::get('user', 'AuthController@user');
     });
 });
+
+Route::resource('clients', 'ClientsController');

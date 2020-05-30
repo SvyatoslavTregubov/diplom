@@ -8,10 +8,13 @@
                         <router-link class="nav-link" to="/">Рабочий стол</router-link>
                     </li>
                     <li class="nav-item" :class="{active: this.$router.currentRoute.name == 'clients'}">
-                        <router-link class="nav-link" to="/">Клиенты</router-link>
+                        <router-link class="nav-link" to="/clients">Клиенты</router-link>
                     </li>
                     <li class="nav-item" :class="{active: this.$router.currentRoute.name == 'machines'}">
-                        <router-link class="nav-link" to="/">Оборудование</router-link>
+                        <router-link class="nav-link" to="/machines">Оборудование</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/auth">Авторизация</router-link>
                     </li>
                 </ul>
             </div>
@@ -23,14 +26,18 @@
             <div class="container">
                 разработка <a href="https://vk.com/svyatilnikkk" target="_blank">Святослав Трегубов</a>
             </div>
+            <DefaultPopup/>
         </footer>
     </div>
 </template>
 
 <script>
-
+    import DefaultPopup from "../components/DefaultPopup";
     export default {
         name: 'App',
+        components: {
+            DefaultPopup
+        },
         computed: {
           currentLink(){
 

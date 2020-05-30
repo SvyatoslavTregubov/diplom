@@ -27,9 +27,11 @@ window.Vue = require('vue');
  */
 
 import App from './main/App';
-import router from "./router";
-import store from "./store";
+import VModal from 'vue-js-modal'
+import router from "./router"
+import store from "./store"
 
+Vue.use(VModal)
 
 const app = new Vue({
     el: '#app',
