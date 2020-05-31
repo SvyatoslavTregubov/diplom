@@ -1,4 +1,5 @@
 import axios from 'axios';
+import User from "../../helpers/user";
 
 const state = () => ({
     clients: {},
@@ -22,7 +23,8 @@ const actions = {
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Authorization': 'Bearer '+ User.getToken()
                 }
             }
         ).then((result) => {

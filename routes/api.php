@@ -28,4 +28,5 @@ Route::group([
     });
 });
 
-Route::resource('clients', 'ClientsController');
+Route::resource('clients', 'ClientsController')->middleware('auth:api');
+Route::resource('agents', 'AgentsController')->middleware('auth:api');
