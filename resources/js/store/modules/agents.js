@@ -3,15 +3,19 @@ import User from "../../helpers/user";
 
 const state = () => ({
     agents: [],
-    loading: {}
+    loading: {},
+    msg: '',
 });
 
 const getters = {
     agentsList(state) {
-        return state.clients
+        return state.agents
     },
     load(state) {
         return state.loading
+    },
+    msg(state) {
+        return state.msg
     }
 };
 
@@ -54,6 +58,7 @@ const actions = {
         ).then((result) => {
             if (result.status === 201) {
                 commit('addAgent', result.data);
+                commit('setMsg', 'Агент успешно добавлен');
             }
             commit('setLoading', false)
         });
@@ -61,8 +66,8 @@ const actions = {
 }
 
 const mutations = {
-    setAgents(state, clients) {
-        state.clients = clients;
+    setAgents(state, agents) {
+        state.agents = agents;
     },
     addAgent(state, agent) {
         state.agents.push(agent);
@@ -70,6 +75,9 @@ const mutations = {
     setLoading(state, value) {
         state.loading = value
     },
+    setMsg(state, msg) {
+        state.msg = msg
+    }
 }
 
 export default {

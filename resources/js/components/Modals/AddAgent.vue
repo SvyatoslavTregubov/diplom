@@ -1,6 +1,7 @@
 <template>
 
     <div class="container">
+        <h4>Добавление нового агента</h4>
         <form @submit.prevent="addNew">
             <div class="form-group">
                 <label for="name">ФИО</label>
@@ -25,6 +26,9 @@
             </div>
             <button type="submit" class="btn btn-success">Добавить</button>
         </form>
+        <div class="alert alert-success" v-if="msg" role="alert">
+            {{msg}}
+        </div>
     </div>
 
 </template>
@@ -46,7 +50,9 @@
                 }
             }
         },computed: {
-            //...mapGetters()
+            ...mapGetters({
+                msg: 'agents/msg'
+            })
         },
         methods: {
             ...mapActions({

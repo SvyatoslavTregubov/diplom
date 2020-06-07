@@ -89,12 +89,14 @@ class ClientsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Clients  $clients
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Clients $clients)
+    public function destroy($id)
     {
-        $clients->delete();
+        $client = Clients::find($id);
+        if ($client->delete()) {
+            return response()->json(['msg' => 'Клиент успешно удален из базы данных!'], 200);
+        }
 
         return response()->json(null, 204);
     }

@@ -31,7 +31,7 @@ import VModal from 'vue-js-modal'
 import router from "./router"
 import store from "./store"
 
-Vue.use(VModal)
+Vue.use(VModal, { dialog: true })
 
 const app = new Vue({
     el: '#app',
