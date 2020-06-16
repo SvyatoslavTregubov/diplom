@@ -30,3 +30,4 @@ Route::group([
 
 Route::resource('clients', 'ClientsController')->middleware('auth:api');
 Route::resource('agents', 'AgentsController')->middleware('auth:api');
+Route::resource('machines', 'ProductController')->middleware('auth:api');

@@ -18,11 +18,11 @@ class ProductController extends Controller
         $products = Product::all();
         $products->transform(function ($item, $key) {
             $file_id = $item['file'];
-            $item['agent'] = File::find($file_id);
+            $item['file'] = File::find($file_id);
             return $item;
         });
 
-        return response()->json(['clients'=> $products], 200);
+        return response()->json(['products'=> $products], 200);
     }
 
     /**
@@ -43,12 +43,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $file_id = false;
         // Сохранение файла
-        if ($request->get('file')) {
+        if ($request->file) {
             $file = $request->file;
-            $name = time().'.' . explode('/', explode(':', substr($file, 0, strpos($file, ';')))[1])[1];
-            $path = public_path('files/').$name;
-            \Image::make($request->get('file'))->save($path);
+            $name = time().'.' . $file->hashName();
+            $path = public_path('uploads/').$name;
+            $file->move('uploads', $name);
 
             $f = new File([
                 'name' => $name,
