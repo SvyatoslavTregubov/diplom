@@ -12,7 +12,7 @@ const routes = [
     {path: '/', name: 'home', component: HomePage},
     {path: '/auth', name: 'auth', component: AuthPage},
     {path: '/clients', name: 'clients', component: ClientsPage},
-    {path: '/machine', name: 'machines', component: MachinePage},
+    {path: '/machines', name: 'machines', component: MachinePage},
 ];
 
 const router = new VueRouter({
