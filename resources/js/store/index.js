@@ -5,6 +5,7 @@ import user from './modules/user'
 import clients from './modules/clients';
 import agents from "./modules/agents";
 import machines from "./modules/machines"
+import errors from "./modules/errors"
 
 
 const store = new Vuex.Store({
@@ -12,7 +13,8 @@ const store = new Vuex.Store({
         user,
         clients,
         agents,
-        machines
+        machines,
+        errors
     }
 })
 
