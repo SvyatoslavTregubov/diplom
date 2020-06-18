@@ -4,21 +4,24 @@
             <button type="button" class="btn btn-success" @click="openPopup('new-machine')">Добавить новое оборудование
             </button>
         </div>
-        <div class="card" v-for="machine in machines" :key="machine.id">
-            <div class="card-body">
-                <h5 class="card-title">{{machine.name}}</h5>
-<!--                <a v-if="machine.file" :href="machine.file.src">{{machine.file.name}}</a>-->
-                <div class="row">
-                    <button @click="detailInfo(machine)" class="btn btn-primary">Подробнее</button>
-                    <button @click="deleteMachine(machine.id)" class="btn btn-primary">Удалить</button>
+        <div class="col mt-4">
+            <div class="card" v-for="machine in machines" :key="machine.id">
+                <div class="card-body">
+                    <h5 class="card-title">{{machine.name}}</h5>
+                    <p class="card-text">{{machine.description}}</p>
+                    <!--                <a v-if="machine.file" :href="machine.file.src">{{machine.file.name}}</a>-->
+                    <div class="row">
+                        <button @click="detailInfo(machine)" class="btn btn-primary">Подробнее</button>
+                        <button @click="deleteMachine(machine.id)" class="btn btn-primary">Удалить</button>
+                    </div>
                 </div>
             </div>
+            <DefaultPreloader :show="loading"></DefaultPreloader>
         </div>
-        <DefaultPreloader :show="loading"></DefaultPreloader>
         <modal name="new-machine" :height="500">
             <AddMachine/>
         </modal>
-        <v-dialog />
+        <v-dialog/>
     </div>
 </template>
 
@@ -66,5 +69,7 @@
 </script>
 
 <style scoped>
-
+    .row {
+        justify-content: space-around;
+    }
 </style>

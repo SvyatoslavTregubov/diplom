@@ -6,12 +6,15 @@
             <button type="button" class="btn btn-success" @click="openPopup('new-agent')">Добавить нового агента
             </button>
         </div>
-        <div class="card" v-for="client in clients" :key="client.id">
-            <div class="card-body">
-                <h5 class="card-title">{{client.name}}</h5>
-                <div class="row">
-                    <button @click="detailInfo(client)" class="btn btn-primary">Подробнее</button>
-                    <button @click="deleteClient(client.id)" class="btn btn-primary">Удалить</button>
+        <div class="col mt-4">
+            <div class="card" v-for="client in clients" :key="client.id">
+                <div class="card-body">
+                    <h5 class="card-title">{{client.name}}</h5>
+                    <p class="card-text">{{client.description}}</p>
+                    <div class="row">
+                        <button @click="detailInfo(client)" class="btn btn-primary">Подробнее</button>
+                        <button @click="deleteClient(client.id)" class="btn btn-primary">Удалить</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -22,7 +25,7 @@
         <modal name="new-client" :height="400">
             <AddClient/>
         </modal>
-        <v-dialog />
+        <v-dialog/>
     </div>
 </template>
 
@@ -59,7 +62,7 @@
                 const contacts = client.agent.name + '<br>' + client.agent.email + '<br>' + client.agent.phone;
                 this.$modal.show('dialog', {
                     title: client.name,
-                    text: client.description + "<br>Контакты<br>"+ contacts,
+                    text: client.description + "<br>Контакты<br>" + contacts,
                     buttons: [
                         {
                             title: 'Закрыть'
@@ -74,7 +77,8 @@
         }
     }
 </script>
-
 <style scoped>
-
+    .row {
+        justify-content: space-around;
+    }
 </style>

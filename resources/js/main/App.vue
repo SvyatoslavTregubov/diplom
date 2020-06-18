@@ -14,6 +14,9 @@
                         <router-link class="nav-link" to="/machines">Оборудование</router-link>
                     </li>
                     <li class="nav-item">
+                        <router-link class="nav-link" to="/auth">Обновления</router-link>
+                    </li>
+                    <li class="nav-item">
                         <router-link class="nav-link" to="/auth">Авторизация</router-link>
                     </li>
                 </ul>

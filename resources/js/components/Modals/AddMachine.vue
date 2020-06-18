@@ -5,7 +5,7 @@
             <div class="form-group">
                 <label for="name">Наименование</label>
                 <input type="text" v-model="machine.name" class="form-control"
-                       :class="{'is-invalid':validation.hasError('machine.name')}" id="name" placeholder="Газпром">
+                       :class="{'is-invalid':validation.hasError('machine.name')}" id="name" placeholder="Название оборудования">
                 <div class="invalid-feedback">
                     {{validation.firstError('machine.name')}}
                 </div>
@@ -14,7 +14,7 @@
                 <label for="phone">Краткое описание</label>
                 <input type="text" v-model="machine.description" class="form-control" id="phone"
                        :class="{'is-invalid':validation.hasError('machine.description')}"
-                       placeholder="Несколько слов о компании">
+                       placeholder="Описание оборудования">
                 <div class="invalid-feedback">
                     {{validation.firstError('machine.description')}}
                 </div>
@@ -23,7 +23,7 @@
                 <label for="phone">Детальное описание</label>
                 <textarea v-model="machine.detail_description" class="form-control" id="phone"
                           :class="{'is-invalid':validation.hasError('machine.detail_description')}"
-                          placeholder="Несколько слов о компании">
+                          placeholder="Большое описание оборудования">
                 </textarea>
                 <div class="invalid-feedback">
                     {{validation.firstError('machine.detail_description')}}

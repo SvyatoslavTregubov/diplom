@@ -31,3 +31,12 @@ Route::group([
 Route::resource('clients', 'ClientsController')->middleware('auth:api');
 Route::resource('agents', 'AgentsController')->middleware('auth:api');
 Route::resource('machines', 'ProductController')->middleware('auth:api');
+
+Route::group([
+    'middleware' => 'auth:api'
+], function(){
+    Route::get('errors', 'ErrorsController@index');
+    Route::get('errors/{status}', 'ErrorsController@filter');
+    Route::put('errors', 'ErrorsController@store');
+    Route::post('errors', 'ErrorsController@update');
+});
